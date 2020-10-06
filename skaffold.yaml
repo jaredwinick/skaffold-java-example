@@ -1,0 +1,8 @@
+apiVersion: skaffold/v2beta8
+kind: Config
+build:
+  artifacts:
+    - image: skaffold-java-example
+      jib: {}
+  local:
+    push: true

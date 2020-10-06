@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skaffold-java-example
+spec:
+  selector:
+    matchLabels:
+      app: skaffold-java-example
+  template:
+    metadata:
+      labels:
+        app: skaffold-java-example
+    spec:
+      containers:
+        - name: skaffold-java-example
+          image: skaffold-java-example
+          ports:
+            - containerPort: 8000
+          env:
+            - name: LISTEN_PORT
+              value: "8000"
+      imagePullSecrets:
+        - name: regcred
